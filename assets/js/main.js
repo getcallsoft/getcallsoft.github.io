@@ -147,22 +147,33 @@
 					// Disable submit.
 						$submit.disabled = true;
 
-					// Process form.
-					// Note: Doesn't actually do anything yet (other than report back with a "thank you"),
-					// but there's enough here to piece together a working AJAX submission call that does.
-						window.setTimeout(function() {
+						var formData = new FormData($form);
 
+						// Perform the AJAX request
+						fetch($form.action, {
+							method: 'POST',
+							body: formData
+						})
+						.then(response => response.json())
+						.then(data => {
+							console.log('Success:', data);
+					
 							// Reset form.
-								$form.reset();
-
-							// Enable submit.
-								$submit.disabled = false;
-
-							// Show message.
-								$message._show('success', 'Thank you!');
-								//$message._show('failure', 'Something went wrong. Please try again.');
-
-						}, 750);
+							$form.reset();
+					
+							// Show success message
+							$message._show('success', 'Thank you!');
+						})
+						.catch(error => {
+							console.error('Error:', error);
+					
+							// Show error message
+							$message._show('failure', 'Something went wrong. Please try again.');
+						})
+						.finally(() => {
+							// Re-enable submit regardless of success or failure
+							$submit.disabled = false;
+						});
 
 				});
 
