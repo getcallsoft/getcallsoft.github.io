@@ -1,54 +1,41 @@
-body {
-    font-family: Arial, sans-serif;
+body, html {
     margin: 0;
     padding: 0;
-    color: #333;
-    background: #f4f4f4;
+    font-family: Arial, sans-serif;
 }
 
 header {
-    background: #005a9c;
+    background: #333;
     color: white;
     padding: 10px 20px;
     text-align: center;
 }
 
-header h1 {
-    margin: 0;
+header h1, header nav {
+    display: inline-block;
+    vertical-align: middle;
 }
 
-nav ul {
+header nav ul {
     list-style: none;
     padding: 0;
 }
 
-nav ul li {
+header nav ul li {
     display: inline;
-    margin-right: 10px;
+    margin-left: 20px;
 }
 
-nav ul li a {
+.hero {
+    background: #007BFF;
     color: white;
-    text-decoration: none;
-}
-
-#hero {
-    background: #0073e6;
-    color: white;
-    padding: 20px;
+    padding: 50px 20px;
     text-align: center;
 }
 
-#features ul {
-    list-style: none;
-    padding: 0;
-}
-
-#features li {
-    background: white;
-    margin: 5px;
-    padding: 10px;
-    border-left: 5px solid #005a9c;
+.features {
+    padding: 20px;
+    background: #f4f4f4;
 }
 
 #signup {
@@ -56,27 +43,20 @@ nav ul li a {
     padding: 20px;
 }
 
-#signup form input[type="email"] {
-    padding: 8px;
-    margin: 10px 0;
-    width: 250px;
-}
-
-#signup form button {
-    padding: 10px 20px;
-    background: #005a9c;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
 footer {
     text-align: center;
-    padding: 10px 0;
-    background: #333;
+    padding: 10px;
+    background: #222;
     color: white;
 }
 
-footer p {
-    margin: 0;
+input[type="email"] {
+    padding: 10px;
+    margin-right: 10px;
+    width: 200px;
+}
+
+button {
+    padding: 10px 20px;
+    cursor: pointer;
 }
